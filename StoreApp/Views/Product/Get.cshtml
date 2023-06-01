@@ -1,5 +1,16 @@
-﻿
-@model Product
+﻿@model Product
+
+<h3> @Model.ProductName </h3>
+<p> @Model.Price.ToString("c") </p>
+
+<div class="btn-group">
+
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Product">
+        <i class="fa-brands fa-product-hunt"></i> Products
+    </a>
+    <a class="btn btn-outline-warning" asp-action="Index" asp-controller="Home">
+        <i class="fa-solid fa-house"></i> Home
+    </a>
 
 
-<partial name="_ProductCard" model="@Model" />
+</div>
