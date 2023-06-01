@@ -13,6 +13,7 @@
             <td>@item.ProductId</td>
             <td>@item.ProductName</td>
             <td>@item.Price</td>
+            <td> <a class="alert-link" asp-controller="Product" asp-action="Get" asp-route-id="@item.ProductId">Get Details</a></td>
 
         </tr>
 

@@ -19,5 +19,14 @@ namespace StoreApp.Controllers
 
             return View(products);
         }
+
+        public IActionResult Get([FromRoute]int id)
+        {
+            var product=_context.Products.Find(id);
+
+            return View(product);
+        }
+
+
     }
 }
