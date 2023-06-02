@@ -41,7 +41,7 @@ namespace Repositories
             }
         }
 
-        public T? GetByCondition(Expression<Func<T, bool>> expression, bool trackChanges)
+        public T? GetByCondition(bool trackChanges, Expression<Func<T, bool>> expression)
         {
             return trackChanges ? _context.Set<T>().Where(expression).SingleOrDefault() : _context.Set<T>().Where(expression).AsNoTracking().SingleOrDefault();
         }

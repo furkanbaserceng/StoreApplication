@@ -24,9 +24,9 @@ namespace StoreApp.Controllers
 
         public IActionResult Get([FromRoute]int id)
         {
-            //var product = _manager.Product.GetAllProducts(false, t => t.ProductId.Equals(id)).ToList();
+            var product = _manager.Product.Get(false, t => t.ProductId.Equals(id));
 
-            //return View(product);
+            return View(product);
 
             throw new NotImplementedException();
             

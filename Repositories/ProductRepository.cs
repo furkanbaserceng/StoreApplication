@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace Repositories
         public ProductRepository(RepositoryContext context) : base(context)
         {
         }
+
+        
 
         //public IQueryable<Product> GetAllProducts(bool trackChanges) => GetAll(false);
 
@@ -37,6 +40,9 @@ namespace Repositories
             }
         }
 
-        
+        public Product? Get(bool trackChanges, Expression<Func<Product, bool>> expression)
+        {
+            return trackChanges ? _context.Set<Product>().Where(expression).SingleOrDefault() : _context.Set<Product>().Where(expression).AsNoTracking().SingleOrDefault();
+        }
     }
 }

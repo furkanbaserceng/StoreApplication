@@ -10,6 +10,6 @@ namespace Repositories.Contracts
     public interface IRepositoryBase<T> 
     {
         IQueryable<T> GetAll(bool trackChanges, Expression<Func<T,bool>> expression=null);
-        T? GetByCondition(Expression<Func<T, bool>> expression, bool trackChanges);
+        T? GetByCondition(bool trackChanges, Expression<Func<T, bool>> expression);
     }
 }
