@@ -39,6 +39,7 @@ bld/
 #wwwroot/
 
 # Config files
+*.json
 appsettings.json
 appSettings.Local.json
 appSettings.Development.json
@@ -103,7 +104,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
-
+*.json
 # Chutzpah Test files
 _Chutzpah*
 
