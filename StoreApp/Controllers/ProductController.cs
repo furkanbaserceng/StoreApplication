@@ -29,8 +29,6 @@ namespace StoreApp.Controllers
 
             return View(product);
 
-            throw new NotImplementedException();
-            
         }
 
 

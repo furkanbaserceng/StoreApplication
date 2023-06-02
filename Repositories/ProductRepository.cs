@@ -16,10 +16,7 @@ namespace Repositories
         {
         }
 
-        
-
-        //public IQueryable<Product> GetAllProducts(bool trackChanges) => GetAll(false);
-
+       
         public IQueryable<Product> GetAllProducts(bool trackChanges, Expression<Func<Product,bool>> expression = null)
         {
             if (trackChanges != true)
