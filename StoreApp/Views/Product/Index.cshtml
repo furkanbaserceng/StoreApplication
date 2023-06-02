@@ -3,5 +3,24 @@
 @model IQueryable<Product>
 
 
-<partial name="_ProductCard" model="@Model"/>
+<div class="row">
+
+    <div class="col-md-3">
+
+        @await Component.InvokeAsync("CategoriesMenu")
+
+    </div>
+
+    <div class="col-md-9">
+
+        <partial name="_ProductCard" model="@Model" />
+
+    </div>
+
+
+</div>
+
+
+
+
 
