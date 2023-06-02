@@ -39,7 +39,7 @@ bld/
 #wwwroot/
 
 # Config files
-*.json
+
 appsettings.json
 appSettings.Local.json
 appSettings.Development.json
