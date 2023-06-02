@@ -12,7 +12,7 @@ namespace Repositories.Contracts
     {
         IQueryable<Product> GetAllProducts(bool trackChanges,Expression<Func<Product,bool>> expression=null);
 
-        Product? Get(bool trackChanges, Expression<Func<Product, bool>> expression);
+        Product? Get(int id, bool trackChanges);
 
 
     }

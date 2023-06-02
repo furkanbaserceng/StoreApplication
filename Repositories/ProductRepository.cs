@@ -40,9 +40,12 @@ namespace Repositories
             }
         }
 
-        public Product? Get(bool trackChanges, Expression<Func<Product, bool>> expression)
+        public Product? Get(int id, bool trackChanges)
         {
-            return trackChanges ? _context.Set<Product>().Where(expression).SingleOrDefault() : _context.Set<Product>().Where(expression).AsNoTracking().SingleOrDefault();
+            
+
+            return GetByCondition(trackChanges, p=>p.ProductId.Equals(id));
+
         }
     }
 }

@@ -24,7 +24,7 @@ namespace StoreApp.Controllers
 
         public IActionResult Get([FromRoute]int id)
         {
-            var product = _manager.Product.Get(false, t => t.ProductId.Equals(id));
+            var product = _manager.Product.Get(id, false);
 
             return View(product);
 
