@@ -1,30 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Repositories;
+using Repositories.Contracts;
 
 namespace StoreApp.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly RepositoryContext _context;
-        public ProductController(RepositoryContext context) {
+        private readonly IRepositoryManager _manager;
+        public ProductController(IRepositoryManager manager) {
 
 
-            _context = context;
+            _manager = manager;
 
         }
 
         public IActionResult Index()
         {
-            var products = _context.Products.ToList();
+            var products = _manager.Product.GetAllProducts(false);
 
             return View(products);
         }
 
         public IActionResult Get([FromRoute]int id)
         {
-            var product=_context.Products.Find(id);
+            //var product=_context.Products.Find(id);
 
-            return View(product);
+            //return View(product);
+
+            throw new NotImplementedException();
         }
 
 
