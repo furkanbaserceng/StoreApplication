@@ -24,11 +24,12 @@ namespace StoreApp.Controllers
 
         public IActionResult Get([FromRoute]int id)
         {
-            //var product=_context.Products.Find(id);
+            //var product = _manager.Product.GetAllProducts(false, t => t.ProductId.Equals(id)).ToList();
 
             //return View(product);
 
             throw new NotImplementedException();
+            
         }
 
 
