@@ -49,6 +49,8 @@ namespace Repositories
        
 
         public void UpdateProduct(Product product) => Update(product);
+
+        public void DeleteProduct(Product product) => Delete(product);
         
     }
 }

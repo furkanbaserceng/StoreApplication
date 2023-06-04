@@ -26,8 +26,11 @@ namespace StoreApp.Controllers
         public IActionResult Get([FromRoute(Name ="id")]int id)
         {
             var product = _manager.ProductService.Get(id, false);
-
-            return View(product);
+            if(product is not null)
+            {
+                return View(product);
+            }
+            return Redirect("/html/error.html");
 
         }
 

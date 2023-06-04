@@ -29,7 +29,7 @@ namespace Services
             var product= _manager.Product.Get(id, trackChanges);
             if(product is null)
             {
-                throw new Exception("Product is not found!");
+                return null;
             }
             return product;
         }
@@ -43,6 +43,12 @@ namespace Services
         public void UpdateProduct(Product product)
         {
             _manager.Product.UpdateProduct(product);
+            _manager.Save();
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            _manager.Product.DeleteProduct(product);
             _manager.Save();
         }
     }
