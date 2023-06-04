@@ -45,9 +45,10 @@ namespace Repositories
 
         }
 
-        public void CreateProduct(Product product)
-        {
-            Create(product);
-        }
+        public void CreateProduct(Product product) => Create(product);
+       
+
+        public void UpdateProduct(Product product) => Update(product);
+        
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
+
     public class ProductManager : IProductService
     {
         private readonly IRepositoryManager _manager;
@@ -36,6 +37,12 @@ namespace Services
         public void CreateProduct(Product product)
         {
             _manager.Product.CreateProduct(product);
+            _manager.Save();
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            _manager.Product.UpdateProduct(product);
             _manager.Save();
         }
     }
