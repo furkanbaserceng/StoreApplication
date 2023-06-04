@@ -18,7 +18,6 @@ namespace Repositories
             _context = context;
         }
 
-
         public IQueryable<T> GetAll(bool trackChanges, Expression<Func<T, bool>> expression = null)
         {
             //return trackChanges ? _context.Set<T>() : _context.Set<T>().AsNoTracking();
@@ -44,6 +43,11 @@ namespace Repositories
         public T? GetByCondition(bool trackChanges, Expression<Func<T, bool>> expression)
         {
             return trackChanges ? _context.Set<T>().SingleOrDefault(expression) : _context.Set<T>().AsNoTracking().SingleOrDefault(expression);
+        }
+
+        public void Create(T entity)
+        {
+            _context.Set<T>().Add(entity);
         }
     }
 }

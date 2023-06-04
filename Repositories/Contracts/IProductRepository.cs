@@ -11,8 +11,8 @@ namespace Repositories.Contracts
     public interface IProductRepository
     {
         IQueryable<Product> GetAllProducts(bool trackChanges,Expression<Func<Product,bool>> expression=null);
-
         Product? Get(int id, bool trackChanges);
+        void CreateProduct(Product product);
 
 
     }

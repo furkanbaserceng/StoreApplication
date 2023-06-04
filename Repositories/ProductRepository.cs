@@ -44,5 +44,10 @@ namespace Repositories
             return GetByCondition(trackChanges, p=>p.ProductId.Equals(id));
 
         }
+
+        public void CreateProduct(Product product)
+        {
+            Create(product);
+        }
     }
 }
