@@ -1,4 +1,5 @@
-﻿using Entities.Dtos;
+﻿using AutoMapper;
+using Entities.Dtos;
 using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -14,10 +15,12 @@ namespace Services
     public class ProductManager : IProductService
     {
         private readonly IRepositoryManager _manager;
+        private readonly IMapper _mapper;
 
-        public ProductManager(IRepositoryManager manager)
+        public ProductManager(IRepositoryManager manager,IMapper mapper)
         {
             _manager = manager;
+            _mapper = mapper;
         }
 
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
@@ -37,14 +40,15 @@ namespace Services
 
         public void CreateProduct(ProductDtoForInsertion productDto)
         {
-            Product product = new Product()
-            {
-                ProductName = productDto.ProductName,
-                CategoryId = productDto.CategoryId,
-                Price = productDto.Price
+            //Product product = new Product()
+            //{
+            //    ProductName = productDto.ProductName,
+            //    CategoryId = productDto.CategoryId,
+            //    Price = productDto.Price
 
-            };
+            //};
 
+            Product product=_mapper.Map<Product>(productDto);
             _manager.Product.CreateProduct(product);
             _manager.Save();
         }
