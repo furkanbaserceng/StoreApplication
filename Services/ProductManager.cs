@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Dtos;
+using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
 using System;
@@ -34,8 +35,16 @@ namespace Services
             return product;
         }
 
-        public void CreateProduct(Product product)
+        public void CreateProduct(ProductDtoForInsertion productDto)
         {
+            Product product = new Product()
+            {
+                ProductName = productDto.ProductName,
+                CategoryId = productDto.CategoryId,
+                Price = productDto.Price
+
+            };
+
             _manager.Product.CreateProduct(product);
             _manager.Save();
         }
