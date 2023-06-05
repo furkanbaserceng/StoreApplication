@@ -53,8 +53,9 @@ namespace Services
             _manager.Save();
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(ProductDtoForUpdate productDto)
         {
+            var product= _mapper.Map<Product>(productDto);
             _manager.Product.UpdateProduct(product);
             _manager.Save();
         }
@@ -63,6 +64,12 @@ namespace Services
         {
             _manager.Product.DeleteProduct(product);
             _manager.Save();
+        }
+
+        public ProductDtoForUpdate GetProductForUpdate(int id, bool trackChanges)
+        {
+            var product = Get(id, trackChanges);
+            return _mapper.Map<ProductDtoForUpdate>(product);
         }
     }
 }

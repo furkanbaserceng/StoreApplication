@@ -26,8 +26,8 @@ namespace StoreApp.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var categories = _manager.CategoryService.GetAllCategories(false);
-            ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName", "1");
+            
+            ViewBag.Categories = GetCategoriesSelectList();
 
             return View();
         }
@@ -36,8 +36,8 @@ namespace StoreApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([FromForm] ProductDtoForInsertion productDto)
         {
-            var categories = _manager.CategoryService.GetAllCategories(false);
-            ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName", "1");
+
+            ViewBag.Categories = GetCategoriesSelectList();
 
 
             if (ModelState.IsValid)
@@ -52,21 +52,26 @@ namespace StoreApp.Areas.Admin.Controllers
 
         public IActionResult Update([FromRoute] int id)
         {
-            var product = _manager.ProductService.Get(id, false);
-            return View(product);
+            ViewBag.Categories = GetCategoriesSelectList();
+
+            var productDto = _manager.ProductService.GetProductForUpdate(id, false);
+
+            return View(productDto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update([FromForm] Product product)
+        public IActionResult Update([FromForm] ProductDtoForUpdate productDto)
         {
+            ViewBag.Categories = GetCategoriesSelectList();
+
             if (ModelState.IsValid)
             {
-                _manager.ProductService.UpdateProduct(product);
+                _manager.ProductService.UpdateProduct(productDto);
                 return RedirectToAction("Index");
 
             }
-            return View(product);
+            return View(productDto);
         }
 
         [HttpGet]
@@ -85,6 +90,11 @@ namespace StoreApp.Areas.Admin.Controllers
             }
 
             return RedirectToAction("index");
+        }
+
+        private SelectList GetCategoriesSelectList()
+        {
+            return new SelectList(_manager.CategoryService.GetAllCategories(false), "CategoryId", "CategoryName", "1");
         }
 
     }

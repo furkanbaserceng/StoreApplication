@@ -10,6 +10,7 @@ namespace StoreApp.Infrastructure.Mapping
         public MappingProfile()
         {
             CreateMap<ProductDtoForInsertion, Product>().ReverseMap();
+            CreateMap<ProductDtoForUpdate, Product>().ReverseMap();
         }
 
 
