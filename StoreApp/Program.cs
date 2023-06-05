@@ -14,6 +14,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("mssqlserverconnection"),
         b=>b.MigrationsAssembly("StoreApp"));
+    //options.EnableSensitiveDataLogging();
     
 });
 
