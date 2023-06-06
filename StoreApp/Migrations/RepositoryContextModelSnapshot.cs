@@ -62,11 +62,17 @@ namespace StoreApp.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
@@ -80,57 +86,73 @@ namespace StoreApp.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 2,
+                            ImageUrl = "/img/computer.jpg",
                             Price = 18000m,
-                            ProductName = "Computer"
+                            ProductName = "Computer",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 2,
                             CategoryId = 2,
+                            ImageUrl = "/img/keyboard.jpg",
                             Price = 850m,
-                            ProductName = "Keyboard"
+                            ProductName = "Keyboard",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 3,
                             CategoryId = 2,
+                            ImageUrl = "/img/mouse.jpg",
                             Price = 350m,
-                            ProductName = "Mouse"
+                            ProductName = "Mouse",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 4,
                             CategoryId = 2,
+                            ImageUrl = "/img/monitor.jpg",
                             Price = 1200m,
-                            ProductName = "Monitor"
+                            ProductName = "Monitor",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 5,
                             CategoryId = 2,
+                            ImageUrl = "/img/deck.jpg",
                             Price = 30m,
-                            ProductName = "Deck"
+                            ProductName = "Deck",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 6,
                             CategoryId = 1,
+                            ImageUrl = "/img/kimya.jpg",
                             Price = 44m,
-                            ProductName = "Book1"
+                            ProductName = "Book1",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 7,
                             CategoryId = 1,
+                            ImageUrl = "/img/kasem.jpg",
                             Price = 55m,
-                            ProductName = "Book2"
+                            ProductName = "Book2",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 8,
                             CategoryId = 1,
+                            ImageUrl = "/img/atlas.jpg",
                             Price = 66m,
-                            ProductName = "Book3"
+                            ProductName = "Book3",
+                            Summary = ""
                         });
                 });
 

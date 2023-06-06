@@ -19,15 +19,15 @@ namespace Repositories.Config
 
             builder.HasData(
 
-                new Product() { ProductId = 1,CategoryId=2, ProductName = "Computer", Price = 18000 },
-                new Product() { ProductId = 2, CategoryId = 2, ProductName = "Keyboard", Price = 850 },
-                new Product() { ProductId = 3, CategoryId = 2, ProductName = "Mouse", Price = 350 },
-                new Product() { ProductId = 4, CategoryId = 2, ProductName = "Monitor", Price = 1200 },
-                new Product() { ProductId = 5, CategoryId = 2, ProductName = "Deck", Price = 30 },
+                new Product() { ProductId = 1,CategoryId=2, ProductName = "Computer",ImageUrl="/img/computer.jpg", Price = 18000 },
+                new Product() { ProductId = 2, CategoryId = 2, ProductName = "Keyboard", ImageUrl = "/img/keyboard.jpg", Price = 850 },
+                new Product() { ProductId = 3, CategoryId = 2, ProductName = "Mouse", ImageUrl = "/img/mouse.jpg", Price = 350 },
+                new Product() { ProductId = 4, CategoryId = 2, ProductName = "Monitor", ImageUrl = "/img/monitor.jpg", Price = 1200 },
+                new Product() { ProductId = 5, CategoryId = 2, ProductName = "Deck", ImageUrl = "/img/deck.jpg", Price = 30 },
 
-                new Product() { ProductId=6, CategoryId=1, ProductName="Book1",Price=44},
-                new Product() { ProductId=7, CategoryId=1, ProductName="Book2",Price=55},
-                new Product() { ProductId=8, CategoryId=1, ProductName="Book3",Price=66}
+                new Product() { ProductId=6, CategoryId=1, ProductName="Book1", ImageUrl = "/img/kimya.jpg", Price =44},
+                new Product() { ProductId=7, CategoryId=1, ProductName="Book2", ImageUrl = "/img/kasem.jpg", Price =55},
+                new Product() { ProductId=8, CategoryId=1, ProductName="Book3", ImageUrl = "/img/atlas.jpg", Price =66}
 
 
                 );

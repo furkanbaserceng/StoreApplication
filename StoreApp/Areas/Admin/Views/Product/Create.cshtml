@@ -6,7 +6,7 @@
 
 
 
-<form asp-area="Admin" asp-controller="Product" asp-action="Create" method="post">
+<form asp-area="Admin" asp-controller="Product" asp-action="Create" method="post" enctype="multipart/form-data">
 
     @*<div class="text text-danger" asp-validation-summary="All"></div>*@
 
@@ -33,6 +33,17 @@
         <label asp-for="Price"></label>
         <input asp-for="Price" class="form-control" />
         <span class="text text-danger field-validation-valid" asp-validation-for="Price"></span>
+    </div>
+
+    <div class="form-group my-3">
+        <label asp-for="Summary"></label>
+        <input asp-for="Summary" class="form-control" />
+        <span class="text text-danger field-validation-valid" asp-validation-for="Summary"></span>
+    </div>
+    <div class="form-group my-3">
+        <label asp-for="ImageUrl">Image</label>
+        <input name="file" type="file" class="form-control" />
+        <span class="text text-danger field-validation-valid" asp-validation-for="Summary"></span>
     </div>
 
     <div class="form-group">

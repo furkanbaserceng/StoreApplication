@@ -34,7 +34,7 @@ namespace StoreApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm] ProductDtoForInsertion productDto)
+        public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion productDto,IFormFile file)
         {
 
             ViewBag.Categories = GetCategoriesSelectList();
@@ -42,6 +42,15 @@ namespace StoreApp.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
+
+                //file operations
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", file.FileName);
+                using(var stream=new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                productDto.ImageUrl = String.Concat("/img/", file.FileName);
+
                 _manager.ProductService.CreateProduct(productDto);
                 return RedirectToAction("Index");
                 

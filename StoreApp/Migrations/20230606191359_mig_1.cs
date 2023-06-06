@@ -29,6 +29,8 @@ namespace StoreApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -53,17 +55,17 @@ namespace StoreApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "Price", "ProductName" },
+                columns: new[] { "ProductId", "CategoryId", "ImageUrl", "Price", "ProductName", "Summary" },
                 values: new object[,]
                 {
-                    { 1, 2, 18000m, "Computer" },
-                    { 2, 2, 850m, "Keyboard" },
-                    { 3, 2, 350m, "Mouse" },
-                    { 4, 2, 1200m, "Monitor" },
-                    { 5, 2, 30m, "Deck" },
-                    { 6, 1, 44m, "Book1" },
-                    { 7, 1, 55m, "Book2" },
-                    { 8, 1, 66m, "Book3" }
+                    { 1, 2, "/img/computer.jpg", 18000m, "Computer", "" },
+                    { 2, 2, "/img/keyboard.jpg", 850m, "Keyboard", "" },
+                    { 3, 2, "/img/mouse.jpg", 350m, "Mouse", "" },
+                    { 4, 2, "/img/monitor.jpg", 1200m, "Monitor", "" },
+                    { 5, 2, "/img/deck.jpg", 30m, "Deck", "" },
+                    { 6, 1, "/img/kimya.jpg", 44m, "Book1", "" },
+                    { 7, 1, "/img/kasem.jpg", 55m, "Book2", "" },
+                    { 8, 1, "/img/atlas.jpg", 66m, "Book3", "" }
                 });
 
             migrationBuilder.CreateIndex(
