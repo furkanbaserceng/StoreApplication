@@ -10,10 +10,11 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <td>ProductId</td>
-                    <td>ProductName</td>
-                    <td>Price</td>
-                    <td>Operations</td>
+                    <th scope="col">ProductId</th>
+                    <th>Image</th>
+                    <th>ProductName</th>
+                    <th>Price</th>
+                    <th>Operations</th>
                 </tr>
             </thead>
 
@@ -23,6 +24,9 @@
                 {
                     <tr>
                         <td> @item.ProductId </td>
+                        <td> 
+                            <img class="rounded shadow" width="150px" src="@item.ImageUrl" alt="@item.ProductName" />
+                        </td>
                         <td> @item.ProductName </td>
                         <td> @item.Price.ToString("c")</td>
                         <td>
