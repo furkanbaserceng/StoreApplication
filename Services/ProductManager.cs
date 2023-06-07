@@ -6,6 +6,7 @@ using Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,9 +24,9 @@ namespace Services
             _mapper = mapper;
         }
 
-        public IEnumerable<Product> GetAllProducts(bool trackChanges)
+        public IEnumerable<Product> GetAllProducts(bool trackChanges, Expression<Func<Product, bool>> expression = null)
         {
-            return _manager.Product.GetAllProducts(trackChanges);
+            return expression != null ? _manager.Product.GetAllProducts(trackChanges, expression) : _manager.Product.GetAllProducts(trackChanges);
         }
 
         public Product? Get(int id, bool trackChanges)

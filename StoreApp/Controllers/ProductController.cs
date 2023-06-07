@@ -34,6 +34,15 @@ namespace StoreApp.Controllers
 
         }
 
+        public IActionResult GetByCategory([FromRoute] int id)
+        {
+            var products=_manager.ProductService.GetAllProducts(false,p=>p.CategoryId.Equals(id));
+
+            return View(products);
+
+
+        }
+
 
     }
 }
