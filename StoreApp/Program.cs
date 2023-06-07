@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+
 
 builder.Services.AddDbContext<RepositoryContext>(options =>
 {
@@ -64,6 +66,8 @@ app.UseEndpoints(endpoints =>
             pattern: "{controller=Home}/{action=Index}/{id?}"
 
         );
+
+    endpoints.MapRazorPages();
 
 
 });
