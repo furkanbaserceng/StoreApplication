@@ -13,7 +13,15 @@
 
     <div class="col-md-9">
 
-        <partial name="_ProductCard" model="@Model" />
+        <div class="row my-3">
+
+            @foreach (var item in Model)
+            {
+                <partial name="_ProductCard" model="@item" />
+
+            }
+
+        </div>
 
     </div>
 

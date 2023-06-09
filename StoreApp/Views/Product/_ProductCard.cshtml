@@ -1,27 +1,36 @@
 ﻿
-@model IQueryable<Product>
+@model Product
 
-<div class="container">
-    <div class="row">
-    @foreach (var product in Model)
-    {
-        
-            <div class="col-md-4 my-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src=@product?.ImageUrl alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@product?.ProductName</h5>
-                        <p> <mark> @product?.Price </mark> </p>
-                        <p class="card-text">@product.Summary</p>
-                        <a asp-action="Get" asp-controller="Product" asp-route-id="@product?.ProductId" class="btn btn-primary">
-                            <i class="fa-solid fa-arrows-turn-right"></i> Get Product Details
-                        </a>
-                    </div>
-                </div>
-            </div>
-        
 
-    }
+        
+<div class="col-sm-12 col-md-4 my-2">
+
+     <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src=@Model?.ImageUrl alt="Card image cap">
+                 <div class="card-body">
+                    <h5 class="card-title">@Model?.ProductName</h5>
+                    <p> <mark> @Model?.Price </mark> </p>
+                    <p class="card-text">@Model.Summary</p>
+                 <div class="btn btn-group">
+
+                     <form id="@Model.ProductId" asp-page="/Cart" method="post">
+                         <input type="hidden" asp-for="@Model.ProductId" />
+                         <input type="hidden" name="returnUrl" value="/Product/Get/@Model.ProductId" />
+                          <button type="submit" class="btn btn-outline-primary">
+                                <i class="fa fa-cart-plus"></i>
+                           </button>
+                            
+                     </form>
+
+                      <a asp-action="Get" asp-controller="Product" asp-route-id="@Model?.ProductId" class="btn btn-primary">
+                                <i class="fa-solid fa-arrows-turn-right"></i> Get Details
+                            </a>
+                  </div>
+                        
+                  
+         </div>
     </div>
+ </div>
 
-</div>
+   
+    
