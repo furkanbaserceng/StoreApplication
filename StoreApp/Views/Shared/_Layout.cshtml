@@ -57,7 +57,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Cart">
-                                <i class="fa-solid fa-cart-shopping fa-lg" style="color: #5a8b50;"></i> Cart
+                                <i class="fa-solid fa-cart-shopping fa-lg" style="color: #5a8b50;"></i> Cart(@await Component.InvokeAsync("CartSummary"))
                             </a>
                         </li>
 
