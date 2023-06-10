@@ -30,7 +30,7 @@ namespace Entities.Models
 
         public virtual void RemoveLine(Product product)=>Lines.RemoveAll(l=>l.Product.ProductId.Equals(product.ProductId));
 
-        public void Clear() => Lines.Clear();
+        public virtual void Clear() => Lines.Clear();
         public decimal ComputeTotalValue() => Lines.Sum(e => e.Product.Price * e.Quantity);
 
 
