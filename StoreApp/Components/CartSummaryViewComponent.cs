@@ -8,10 +8,10 @@ namespace StoreApp.Components
     {
         //private readonly Cart _cart;
 
-        public CartSummaryViewComponent(Cart cart)
-        {
-            //_cart = cart;
-        }
+        //public CartSummaryViewComponent(Cart cart)
+        //{
+        //    //_cart = cart;
+        //}
 
         public string Invoke()
         {
