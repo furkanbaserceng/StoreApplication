@@ -1,0 +1,23 @@
+﻿@page "/demo"
+@model StoreApp.Pages.SessionDemoModel
+@{
+}
+
+
+<div class="my-5 text-center">
+
+    <div class="display-6">Hello ... @Model.FullName</div>
+
+    <form method="post" asp-page="/SessionDemo">
+
+        <div class="form-group">
+            <input class="form-control" name="name" placeholder="enter your name" />
+            <button type="submit" class="btn btn-primary my-3">Submit</button>
+
+        </div>
+
+    </form>
+
+
+
+</div>
