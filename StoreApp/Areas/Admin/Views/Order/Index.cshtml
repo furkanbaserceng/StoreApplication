@@ -1,0 +1,23 @@
+﻿
+
+@model IEnumerable<Order>
+
+    @if(Model.Count()>0)
+    {
+
+        @foreach (var item in Model)
+        {
+            <div class="my-3">
+
+                 <partial name="_OrderDetails" model="@item" />
+
+            </div>
+        }
+
+    }
+    else
+    {
+
+        <div class="alert alert-info"> Order(s) wasn't found! </div>
+
+    }
