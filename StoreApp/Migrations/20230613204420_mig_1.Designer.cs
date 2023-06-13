@@ -12,7 +12,7 @@ using Repositories;
 namespace StoreApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20230611095406_mig_1")]
+    [Migration("20230613204420_mig_1")]
     partial class mig_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,6 +140,9 @@ namespace StoreApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
 
@@ -157,6 +160,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/computer.jpg",
                             Price = 18000m,
                             ProductName = "Computer",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -166,6 +170,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/keyboard.jpg",
                             Price = 850m,
                             ProductName = "Keyboard",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -175,6 +180,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/mouse.jpg",
                             Price = 350m,
                             ProductName = "Mouse",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -184,6 +190,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/monitor.jpg",
                             Price = 1200m,
                             ProductName = "Monitor",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -193,6 +200,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/deck.jpg",
                             Price = 30m,
                             ProductName = "Deck",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -202,6 +210,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/kimya.jpg",
                             Price = 44m,
                             ProductName = "Book1",
+                            ShowCase = true,
                             Summary = ""
                         },
                         new
@@ -211,6 +220,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/kasem.jpg",
                             Price = 55m,
                             ProductName = "Book2",
+                            ShowCase = true,
                             Summary = ""
                         },
                         new
@@ -220,6 +230,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/img/atlas.jpg",
                             Price = 66m,
                             ProductName = "Book3",
+                            ShowCase = true,
                             Summary = ""
                         });
                 });
