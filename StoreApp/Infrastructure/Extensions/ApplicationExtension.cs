@@ -19,5 +19,15 @@ namespace StoreApp.Infrastructure.Extensions
 
         }
 
+        public static void ConfigureLocalization(this IApplicationBuilder app)
+        {
+            app.UseRequestLocalization(options =>
+            {
+                options.AddSupportedCultures("tr-TR", "en-GB")
+                       .AddSupportedUICultures("tr-TR", "en-GB")
+                       .SetDefaultCulture("tr-TR");
+            });
+        }
+
     }
 }

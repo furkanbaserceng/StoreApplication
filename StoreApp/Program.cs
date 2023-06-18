@@ -57,5 +57,6 @@ app.UseEndpoints(endpoints =>
 
 
 app.ConfigureAndCheckMigration();
+app.ConfigureLocalization();
 
 app.Run();
