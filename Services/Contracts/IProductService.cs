@@ -14,6 +14,7 @@ namespace Services.Contracts
     {
 
         IEnumerable<Product> GetAllProducts(bool trackChanges,Expression<Func<Product,bool>> expression=null);
+        IEnumerable<Product> GetShowcaseProducts(bool trackChanges);
         Product? Get(int id, bool trackChanges);
         void CreateProduct(ProductDtoForInsertion productDto);
         void UpdateProduct(ProductDtoForUpdate productDto);

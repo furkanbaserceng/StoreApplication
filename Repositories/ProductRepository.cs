@@ -51,6 +51,10 @@ namespace Repositories
         public void UpdateProduct(Product product) => Update(product);
 
         public void DeleteProduct(Product product) => Delete(product);
-        
+
+        public IQueryable<Product> GetShowcaseProducts(bool trackChanges)
+        {
+            return GetAll(trackChanges, p => p.ShowCase.Equals(true)); 
+        }
     }
 }
