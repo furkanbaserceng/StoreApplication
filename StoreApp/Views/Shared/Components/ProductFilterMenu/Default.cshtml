@@ -1,0 +1,55 @@
+﻿
+
+<div class="my-3">
+
+    <h6 class="lead">
+        <i class="fa fa-filter text-secondary"></i>
+        Filter
+    </h6>
+
+</div>
+
+<div class="my-2">
+
+    <form method="get" asp-controller="Product" asp-action="GetByFilterText">
+
+        <input type="hidden" name="categoryId" value="@(Context.Request.Query["categoryId"])" />
+        <div class="form-group my-2">
+            <input class="form-control" name="SearchTerm" placeholder="Search.." />
+        </div>
+        
+        <div class="btn btn-group d-flex justify-content-center">
+            
+                <button class="btn btn-sm btn-primary" type="submit">Filter</button>
+            
+            
+                <a class="btn btn-sm btn-outline-secondary" asp-controller="Product" asp-action="Index" >Get All Products</a>
+           
+        </div>
+       
+
+    </form>
+    <form method="get" asp-controller="Product" asp-action="GetByPrice">
+
+       
+        <div class="form-group my-2">
+            <input class="form-control" name="MinPrice" placeholder="MinPrice.." />
+        </div>
+        <div class="form-group my-2">
+            <input class="form-control" name="MaxPrice" placeholder="MaxPrice.." />
+        </div>
+        <div class="btn btn-group d-flex justify-content-center">
+
+            <button class="btn btn-sm btn-primary" type="submit">Filter</button>
+
+
+            <a class="btn btn-sm btn-outline-secondary" asp-controller="Product" asp-action="Index">Get All Products</a>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+

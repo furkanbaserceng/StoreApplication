@@ -43,6 +43,22 @@ namespace StoreApp.Controllers
 
         }
 
+        public IActionResult GetByFilterText([FromQuery] string SearchTerm)
+        {
+            var products = _manager.ProductService.GetAllProducts(false, p => p.ProductName.Contains(SearchTerm));
+
+            return View(products);
+
+
+        }
+        public IActionResult GetByPrice([FromQuery] decimal MinPrice, [FromQuery] decimal MaxPrice)
+        {
+            var products = _manager.ProductService.GetAllProducts(false, p => p.Price >= MinPrice && p.Price <= MaxPrice);
+
+            return View(products);
+
+
+        }
 
     }
 }
